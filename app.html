@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>LearnNaija App</title>
+
+  <!-- Bootstrap Icons -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="styles/app.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- APP HEADER -->
+
+  <header class="app-header">
+
+    <a href="index.html" class="app-brand">
+      Learn<span>Naija</span>
+    </a>
+
+    <button class="notification-button">
+      <i class="bi bi-bell"></i>
+    </button>
+
+  </header>
+
+
+  <!-- APP CONTENT -->
+
+  <main class="app-content">
+
+
+    <!-- HOME -->
+
+    <section
+      id="home"
+      class="app-screen active-screen"
+    >
+
+      <div class="welcome">
+
+        <p>Good morning</p>
+
+        <h1>
+          Ready to learn, Oba?
+        </h1>
+
+      </div>
+
+
+      <!-- STATS -->
+
+      <div class="stats-row">
+
+        <div class="stat">
+
+          <i class="bi bi-fire"></i>
+
+          <div>
+            <strong>5</strong>
+            <span>day streak</span>
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <i class="bi bi-star"></i>
+
+          <div>
+            <strong>240</strong>
+            <span>XP earned</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTINUE -->
+
+      <div class="continue-card">
+
+        <div class="card-label">
+          CONTINUE LEARNING
+        </div>
+
+        <div class="continue-main">
+
+          <div class="lesson-symbol">
+            <i class="bi bi-chat-square-text"></i>
+          </div>
+
+          <div>
+
+            <span>Yorùbá · Beginner</span>
+
+            <h2>Greetings</h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="lesson-progress">
+
+          <div class="progress-track">
+            <div></div>
+          </div>
+
+          <span>70%</span>
+
+        </div>
+
+
+        <button class="continue-button">
+          Continue
+          <i class="bi bi-arrow-right"></i>
+        </button>
+
+      </div>
+
+
+      <!-- DAILY CHALLENGE -->
+
+      <div class="section-title">
+
+        <h2>Today's challenge</h2>
+
+        <button>
+          See all
+        </button>
+
+      </div>
+
+
+      <div class="challenge">
+
+        <div class="challenge-icon">
+          <i class="bi bi-lightning"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Learn 5 new phrases
+          </h3>
+
+          <p>
+            Complete today's practice
+          </p>
+
+        </div>
+
+        <strong>
+          +30 XP
+        </strong>
+
+      </div>
+
+    </section>
+
+
+   <!-- LEARN -->
+
+<section
+  id="learn"
+  class="app-screen"
+>
+
+  <div class="screen-heading">
+
+    <p>YOUR LANGUAGES</p>
+
+    <h1>Learn</h1>
+
+  </div>
+
+
+  <div class="language-list">
+
+
+    <!-- YORUBA -->
+
+    <button
+      class="language-card"
+      data-language="yoruba"
+    >
+
+      <div class="language-top">
+
+        <div class="language-badge">
+          Y
+        </div>
+
+        <div class="language-info">
+
+          <h2>Yorùbá</h2>
+
+          <span>Beginner</span>
+
+        </div>
+
+        <i class="bi bi-chevron-right"></i>
+
+      </div>
+
+
+      <div class="language-progress">
+
+        <div class="progress-label">
+
+          <span>12 of 20 lessons</span>
+
+          <strong>60%</strong>
+
+        </div>
+
+        <div class="progress-bar">
+
+          <div
+            class="progress-fill"
+            style="width: 60%;"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </button>
+
+
+    <!-- IGBO -->
+
+    <button
+      class="language-card"
+      data-language="igbo"
+    >
+
+      <div class="language-top">
+
+        <div class="language-badge">
+          I
+        </div>
+
+        <div class="language-info">
+
+          <h2>Igbo</h2>
+
+          <span>Not started</span>
+
+        </div>
+
+        <i class="bi bi-chevron-right"></i>
+
+      </div>
+
+
+      <div class="language-progress">
+
+        <div class="progress-label">
+
+          <span>0 of 20 lessons</span>
+
+          <strong>0%</strong>
+
+        </div>
+
+        <div class="progress-bar">
+
+          <div
+            class="progress-fill"
+            style="width: 0%;"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </button>
+
+
+    <!-- HAUSA -->
+
+    <button
+      class="language-card"
+      data-language="hausa"
+    >
+
+      <div class="language-top">
+
+        <div class="language-badge">
+          H
+        </div>
+
+        <div class="language-info">
+
+          <h2>Hausa</h2>
+
+          <span>Not started</span>
+
+        </div>
+
+        <i class="bi bi-chevron-right"></i>
+
+      </div>
+
+
+      <div class="language-progress">
+
+        <div class="progress-label">
+
+          <span>0 of 20 lessons</span>
+
+          <strong>0%</strong>
+
+        </div>
+
+        <div class="progress-bar">
+
+          <div
+            class="progress-fill"
+            style="width: 0%;"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </button>
+
+
+  </div>
+
+</section>
+
+    <!-- PRACTICE -->
+
+    <section
+      id="practice"
+      class="app-screen"
+    >
+
+      <div class="screen-heading">
+
+        <p>KEEP PRACTICING</p>
+
+        <h1>Practice</h1>
+
+      </div>
+
+
+      <div class="practice-grid">
+
+        <button class="practice-card">
+
+          <i class="bi bi-journal-text"></i>
+
+          <strong>Vocabulary</strong>
+
+          <span>Review words</span>
+
+        </button>
+
+
+        <button class="practice-card">
+
+          <i class="bi bi-headphones"></i>
+
+          <strong>Listening</strong>
+
+          <span>Train your ear</span>
+
+        </button>
+
+
+        <button class="practice-card">
+
+          <i class="bi bi-mic"></i>
+
+          <strong>Speaking</strong>
+
+          <span>Practice pronunciation</span>
+
+        </button>
+
+
+        <button class="practice-card">
+
+          <i class="bi bi-patch-question"></i>
+
+          <strong>Quick Quiz</strong>
+
+          <span>Test yourself</span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROFILE -->
+
+    <section
+      id="profile"
+      class="app-screen"
+    >
+
+      <div class="profile-header">
+
+        <div class="avatar">
+          O
+        </div>
+
+        <div>
+
+          <p>Your profile</p>
+
+          <h1>Oba</h1>
+
+          <span>Yorùbá Beginner</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="profile-stats">
+
+        <div>
+          <strong>240</strong>
+          <span>XP</span>
+        </div>
+
+        <div>
+          <strong>5</strong>
+          <span>Streak</span>
+        </div>
+
+        <div>
+          <strong>12</strong>
+          <span>Lessons</span>
+        </div>
+
+      </div>
+
+
+      <div class="profile-menu">
+
+        <button>
+          <i class="bi bi-translate"></i>
+          <span>My language</span>
+          <strong>Yorùbá</strong>
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+        <button>
+          <i class="bi bi-award"></i>
+          <span>Achievements</span>
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+        <button>
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="bottom-nav">
+
+    <a
+      href="#home"
+      class="nav-item active"
+    >
+
+      <i class="bi bi-house"></i>
+
+      <span>Home</span>
+
+    </a>
+
+
+    <a
+      href="#learn"
+      class="nav-item"
+    >
+
+      <i class="bi bi-book"></i>
+
+      <span>Learn</span>
+
+    </a>
+
+
+    <a
+      href="#practice"
+      class="nav-item"
+    >
+
+      <i class="bi bi-bullseye"></i>
+
+      <span>Practice</span>
+
+    </a>
+
+
+    <a
+      href="#profile"
+      class="nav-item"
+    >
+
+      <i class="bi bi-person"></i>
+
+      <span>Profile</span>
+
+    </a>
+
+  </nav>
+
+
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
