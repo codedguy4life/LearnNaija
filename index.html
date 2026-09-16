@@ -1,184 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>LearnNaija</title>
-
-  <!-- Bootstrap Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  >
-
-  <!-- Landing CSS -->
-  <link rel="stylesheet" href="styles/index.css">
-</head>
-
-<body>
-
-  <!-- LANDING NAV -->
-
-  <header class="landing-nav">
-
-    <a href="index.html" class="brand">
-      Learn<span>Naija</span>
-    </a>
-
-    <button
-      class="menu-button"
-      aria-label="Open menu"
-    >
-      <i class="bi bi-list"></i>
-    </button>
-
-  </header>
-
-
-  <!-- HERO -->
-
-  <main class="landing-main">
-
-    <section class="hero">
-
-      <div class="hero-content">
-
-        <div class="eyebrow">
-          <i class="bi bi-stars"></i>
-          Nigerian Language Learning
-        </div>
-
-        <h1>
-          Learn Nigeria.<br>
-          <span>Speak the language.</span>
-        </h1>
-
-        <p>
-          Learn Yorùbá, Igbo and Hausa through
-          practical lessons, listening and everyday
-          conversations.
-        </p>
-
-
-        <div class="hero-actions">
-
-          <a
-            href="app.html"
-            class="primary-btn"
-          >
-            Start Learning
-            <i class="bi bi-arrow-right"></i>
-          </a>
-
-
-          <a
-            href="app.html#languages"
-            class="secondary-btn"
-          >
-            Explore Languages
-          </a>
-
-        </div>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a704a" />
+    <meta
+      name="description"
+      content="Learn Yorùbá, Igbo, and Hausa with joyful, everyday lessons."
+    />
+    <title>LearnNaija — Speak it like home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <header class="landing-nav">
+      <a href="index.html" class="brand" aria-label="LearnNaija home"
+        ><span class="brand-mark"><i class="bi bi-soundwave"></i></span
+        ><span>Learn<span>Naija</span></span></a
+      >
+      <nav class="desktop-nav" aria-label="Landing navigation">
+        <a href="#languages">Languages</a
+        ><a href="#how-it-works">How it works</a
+        ><a href="app.html#practice">Practice</a>
+      </nav>
+      <a class="nav-cta" href="app.html"
+        >Start learning <i class="bi bi-arrow-up-right"></i
+      ></a>
+      <button
+        class="menu-button"
+        id="menu-button"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <a href="#languages">Languages</a
+        ><a href="#how-it-works">How it works</a
+        ><a href="app.html#practice">Practice</a
+        ><a href="app.html">Start learning <i class="bi bi-arrow-right"></i></a>
       </div>
+    </header>
 
-
-      <!-- SMALL VISUAL -->
-
-      <div class="hero-visual">
-
-        <div class="language-preview">
-
-          <div class="preview-header">
-
-            <span>
-              Your language
-            </span>
-
-            <i class="bi bi-three-dots"></i>
-
+    <main>
+      <section class="hero site-shell">
+        <div class="hero-content">
+          <p class="eyebrow">
+            <i class="bi bi-sparkle"></i> NIGERIAN LANGUAGE LEARNING
+          </p>
+          <h1>Learn the words.<br /><em>Feel at home.</em></h1>
+          <p class="hero-copy">
+            Meet Yorùbá, Igbo and Hausa through the greetings, stories, and
+            everyday moments that make language feel alive.
+          </p>
+          <div class="hero-actions">
+            <a href="app.html" class="primary-btn"
+              >Start learning free <i class="bi bi-arrow-right"></i></a
+            ><a href="#languages" class="secondary-btn">Explore languages</a>
           </div>
-
-
-          <div class="selected-language">
-
-            <div class="language-icon">
-              Y
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true">
+              <span>R</span><span>A</span><span>T</span><span>+</span>
             </div>
-
-            <div>
-              <small>Currently learning</small>
-              <h3>Yorùbá</h3>
-            </div>
-
+            <p>
+              <strong>Made for every kind of learner.</strong><br />Start with a
+              five-minute lesson today.
+            </p>
           </div>
-
-
-          <div class="preview-progress">
-
-            <div class="progress-info">
-
-              <span>Beginner</span>
-
-              <strong>24%</strong>
-
-            </div>
-
-            <div class="progress-track">
-              <div></div>
-            </div>
-
-          </div>
-
-
-          <div class="preview-lesson">
-
-            <div class="lesson-icon">
-              <i class="bi bi-chat-square-text"></i>
-            </div>
-
-            <div>
-
-              <small>Next lesson</small>
-
-              <h4>Greetings</h4>
-
-            </div>
-
-            <i class="bi bi-chevron-right"></i>
-
-          </div>
-
         </div>
+        <div
+          class="hero-visual"
+          aria-label="A preview of the LearnNaija experience"
+        >
+          <span class="float-tag tag-one"
+            ><i class="bi bi-fire"></i> 5 day streak</span
+          ><span class="float-tag tag-two"
+            ><i class="bi bi-stars"></i> +20 XP</span
+          >
+          <div class="app-preview">
+            <div class="preview-top">
+              <span class="preview-logo"><i class="bi bi-soundwave"></i></span
+              ><span class="preview-bell"><i class="bi bi-bell"></i></span>
+            </div>
+            <p class="preview-eyebrow">YOUR DAILY PRACTICE</p>
+            <h2>Ready for a little<br /><em>Yorùbá?</em></h2>
+            <article class="preview-lesson">
+              <div class="preview-lesson-top">
+                <span
+                  ><i class="bi bi-play-fill"></i> PICK UP WHERE YOU LEFT
+                  OFF</span
+                ><b>+20 XP</b>
+              </div>
+              <div class="preview-lesson-body">
+                <i class="bi bi-chat-heart"></i>
+                <div>
+                  <small>YORÙBÁ · UNIT 01</small><strong>Greetings</strong
+                  ><span>Open a conversation with warmth</span>
+                </div>
+              </div>
+              <div class="preview-progress"><span></span><b>25%</b></div>
+              <button type="button">
+                Continue lesson <i class="bi bi-arrow-up-right"></i>
+              </button>
+            </article>
+            <p class="preview-section-label">BUILD THE HABIT</p>
+            <div class="preview-week">
+              <span>✓</span><span>✓</span><span>✓</span><span>✓</span
+              ><span>✓</span><span>✦</span><span></span>
+            </div>
+          </div>
+          <span class="hero-shape shape-one"></span
+          ><span class="hero-shape shape-two"></span>
+        </div>
+      </section>
 
-      </div>
+      <section class="language-strip" id="languages">
+        <div class="site-shell">
+          <p class="eyebrow">FIND YOUR WAY IN</p>
+          <div class="strip-heading">
+            <h2>Every hello holds<br /><em>a whole world.</em></h2>
+            <p>
+              Build a gentle, lasting connection with the languages spoken
+              across Nigeria and around the world.
+            </p>
+          </div>
+          <div class="language-grid">
+            <a href="app.html#learn" class="language-tile yoruba"
+              ><span>Y</span>
+              <div><small>Ọ̀rọ̀ Yorùbá</small><strong>Yorùbá</strong></div>
+              <i class="bi bi-arrow-up-right"></i></a
+            ><a href="app.html#learn" class="language-tile igbo"
+              ><span>I</span>
+              <div><small>Asụsụ Igbo</small><strong>Igbo</strong></div>
+              <i class="bi bi-arrow-up-right"></i></a
+            ><a href="app.html#learn" class="language-tile hausa"
+              ><span>H</span>
+              <div><small>Harshen Hausa</small><strong>Hausa</strong></div>
+              <i class="bi bi-arrow-up-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
 
-    </section>
+      <section class="how-section site-shell" id="how-it-works">
+        <div class="how-copy">
+          <p class="eyebrow">A SMALL PRACTICE, EVERY DAY</p>
+          <h2>Less cramming.<br /><em>More connecting.</em></h2>
+          <p>
+            Lessons are built around the words you will actually use — then we
+            bring them back just when you need them.
+          </p>
+          <a href="app.html" class="inline-link"
+            >See your first lesson <i class="bi bi-arrow-right"></i
+          ></a>
+        </div>
+        <div class="how-cards">
+          <article>
+            <span class="how-icon"
+              ><i class="bi bi-chat-square-heart"></i
+            ></span>
+            <div>
+              <small>01</small>
+              <h3>Learn in context</h3>
+              <p>
+                Useful words, clear meanings, and a real sense of when to use
+                them.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="how-icon coral"><i class="bi bi-headphones"></i></span>
+            <div>
+              <small>02</small>
+              <h3>Listen and repeat</h3>
+              <p>
+                Slow down, hear each phrase, and build confidence one sound at a
+                time.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="how-icon yellow"><i class="bi bi-stars"></i></span>
+            <div>
+              <small>03</small>
+              <h3>Remember with ease</h3>
+              <p>
+                Short reviews turn new phrases into words that stay with you.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-  </main>
+      <section class="closing-cta site-shell">
+        <div>
+          <p class="eyebrow">YOUR NEXT CONVERSATION STARTS HERE</p>
+          <h2>Let’s make<br /><em>it personal.</em></h2>
+          <p>Five minutes is enough to say something new today.</p>
+        </div>
+        <a href="app.html" class="primary-btn light"
+          >Begin your journey <i class="bi bi-arrow-right"></i></a
+        ><span class="cta-orbit one"></span><span class="cta-orbit two"></span>
+      </section>
+    </main>
 
-
-  <footer class="landing-footer">
-
-    <span>
-      LearnNaija
-    </span>
-
-    <span>
-      Learn Nigerian languages.
-    </span>
-
-  </footer>
-
-
-  <script src="js/index.js"></script>
-
-</body>
-
+    <footer class="landing-footer site-shell">
+      <a href="index.html" class="brand"
+        ><span class="brand-mark"><i class="bi bi-soundwave"></i></span
+        ><span>Learn<span>Naija</span></span></a
+      >
+      <p>Small lessons. Big connection.</p>
+      <span>© <span id="year"></span> LearnNaija</span>
+    </footer>
+    <script src="js/index.js"></script>
+  </body>
 </html>
