@@ -293,15 +293,15 @@ function showToast(message) { const toast = $("#toast"); toast.textContent = mes
 function attachEvents() {
   $$(".nav-item").forEach((item) => item.addEventListener("click", (event) => { event.preventDefault(); closePractice(); showScreen(item.getAttribute("href").slice(1)); }));
   $$(".language-card").forEach((card) => card.addEventListener("click", () => card.dataset.language === "yoruba" ? showScreen("yoruba-course") : showToast(`${card.querySelector("strong").textContent} lessons are coming soon.`)));
-  $("#back-to-languages").addEventListener("click", () => showScreen("learn"));
+  $("#back-to-languages")?.addEventListener("click", () => showScreen("learn"));
   $$(".course-lesson").forEach((button) => button.addEventListener("click", () => startLesson(button.dataset.lesson)));
-  $("#continue-learning").addEventListener("click", () => startLesson(nextLesson()));
-  $("#lesson-back").addEventListener("click", () => showScreen("yoruba-course"));
-  $("#challenge-button").addEventListener("click", () => startPractice("quick-quiz"));
+  $("#continue-learning")?.addEventListener("click", () => startLesson(nextLesson()));
+  $("#lesson-back")?.addEventListener("click", () => showScreen("yoruba-course"));
+  $("#challenge-button")?.addEventListener("click", () => startPractice("quick-quiz"));
   $$("[data-practice]").forEach((button) => button.addEventListener("click", () => startPractice(button.dataset.practice)));
-  $("#notification-trigger").addEventListener("click", () => { $(".notification-dot")?.remove(); openModal("notifications"); });
+  $("#notification-trigger")?.addEventListener("click", () => { $(".notification-dot")?.remove(); openModal("notifications"); });
   $$("[data-modal]").forEach((button) => button.addEventListener("click", () => openModal(button.dataset.modal)));
-  $("#modal-layer").addEventListener("click", (event) => { if (event.target === event.currentTarget || event.target.closest("[data-close-modal]")) closeModal(); });
+  $("#modal-layer")?.addEventListener("click", (event) => { if (event.target === event.currentTarget || event.target.closest("[data-close-modal]")) closeModal(); });
   window.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("#modal-layer").hidden) closeModal(); });
 }
 
