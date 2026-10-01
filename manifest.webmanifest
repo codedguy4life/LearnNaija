@@ -1,0 +1,11 @@
+{
+  "name":"LearnNaija — Nigerian Language Learning",
+  "short_name":"LearnNaija",
+  "description":"Learn Yorùbá, Igbo and Hausa with lessons, practice and an AI language tutor.",
+  "start_url":"./app.html",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f4f7f2",
+  "theme_color":"#0a704a",
+  "icons":[]
+}
