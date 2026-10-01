@@ -1,117 +1,27 @@
-const languageNames = {
-  yoruba: 'Yorùbá',
-  igbo: 'Igbo',
-  hausa: 'Hausa'
+/* LearnNaija AI Tutor — local-first now, ready for a secure /api/ai/tutor backend later */
+const languageNames={yoruba:"Yorùbá",igbo:"Igbo",hausa:"Hausa"};
+const languageGreetings={yoruba:"Báwo Oba 👋",igbo:"Ndewo Oba 👋",hausa:"Sannu Oba 👋"};
+const practicePhrases={
+  yoruba:[{native:"Báwo ni?",english:"How are you?"},{native:"Ẹ káàárọ̀",english:"Good morning"},{native:"Ẹ ṣé",english:"Thank you"}],
+  igbo:[{native:"Ndewo",english:"Hello"},{native:"Kedu?",english:"How are you?"},{native:"Daalụ",english:"Thank you"}],
+  hausa:[{native:"Sannu",english:"Hello / welcome"},{native:"Yaya kake?",english:"How are you?"},{native:"Na gode",english:"Thank you"}]
 };
+let currentLanguage=localStorage.getItem("learnnaija_language")||"yoruba";
+let practiceIndex=0;
+const chatArea=document.getElementById("chat-area"),chatForm=document.getElementById("chat-form"),chatInput=document.getElementById("chat-input"),welcomeMessage=document.getElementById("welcome-message"),tutorStatus=document.getElementById("tutor-status"),voiceButton=document.getElementById("voice-button");
 
-const languageGreetings = {
-  yoruba: 'Báwo Oba 👋',
-  igbo: 'Ndewo Oba 👋',
-  hausa: 'Sannu Oba 👋'
-};
-
-let currentLanguage = localStorage.getItem('learnnaija_language') || 'yoruba';
-
-const chatArea = document.getElementById('chat-area');
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
-const welcomeMessage = document.getElementById('welcome-message');
-const tutorStatus = document.getElementById('tutor-status');
-
-function getResponse(message) {
-  const text = message.toLowerCase();
-  const language = languageNames[currentLanguage];
-
-  if (text.includes('quiz')) {
-    return `Quick quiz time 🧠 In ${language}, try this: what do you think a common greeting means? Send your answer and I’ll guide you step by step.`;
-  }
-
-  if (text.includes('greeting') || text.includes('hello') || text.includes('teach')) {
-    if (currentLanguage === 'yoruba') return 'Let’s start with “Báwo?” — a simple way to ask “How are you?” Try saying it back to me.';
-    if (currentLanguage === 'igbo') return 'Let’s start with “Ndewo” as a friendly greeting. Try using it in a short sentence.';
-    return 'Let’s start with “Sannu” as a common greeting. Try saying it naturally, then we can build a short conversation.';
-  }
-
-  if (text.includes('pronoun') || text.includes('pronounce') || text.includes('speak')) {
-    return `Great choice 🎤 Pronunciation practice will let you hear a phrase, repeat it, and eventually receive feedback. For now, type the ${language} word you want to practise.`;
-  }
-
-  if (text.includes('practice') || text.includes('conversation') || text.includes('talk')) {
-    return `Let’s practise ${language}. I’ll keep the conversation simple. Start by greeting me, and I’ll reply as your conversation partner.`;
-  }
-
-  if (text.includes('meaning') || text.includes('translate') || text.includes('what does')) {
-    return `Send me the ${language} word or phrase you want to understand. I’ll explain its meaning and show you how it can fit into a real conversation.`;
-  }
-
-  return `Nice one 👍 Let’s use that as part of your ${language} practice. Ask me for a word, a translation, a quiz, or a conversation and we’ll take it one step at a time.`;
-}
-
-function addMessage(text, type = 'tutor') {
-  const wrapper = document.createElement('div');
-  wrapper.className = `chat-message ${type === 'user' ? 'user-message' : 'tutor-message'}`;
-
-  if (type === 'tutor') {
-    wrapper.innerHTML = `
-      <div class="message-avatar"><i class="bi bi-stars"></i></div>
-      <div class="message-bubble">
-        <span class="message-label">AI TUTOR</span>
-        <p></p>
-      </div>`;
-  } else {
-    wrapper.innerHTML = '<div class="message-bubble"><p></p></div>';
-  }
-
-  wrapper.querySelector('p').textContent = text;
-  chatArea.appendChild(wrapper);
-  chatArea.scrollTop = chatArea.scrollHeight;
-}
-
-function updateLanguage(language) {
-  currentLanguage = language;
-  localStorage.setItem('learnnaija_language', language);
-
-  document.querySelectorAll('.language-tab').forEach((tab) => {
-    const active = tab.dataset.language === language;
-    tab.classList.toggle('active', active);
-    tab.setAttribute('aria-selected', String(active));
-  });
-
-  const name = languageNames[language];
-  tutorStatus.textContent = `${name} practice ready`;
-  welcomeMessage.textContent = `${languageGreetings[language]} I’m ready to help you practice ${name}. What do you want to work on today?`;
-  chatInput.placeholder = `Ask about ${name}...`;
-}
-
-document.querySelectorAll('.language-tab').forEach((tab) => {
-  tab.addEventListener('click', () => updateLanguage(tab.dataset.language));
-});
-
-document.querySelectorAll('.quick-action').forEach((button) => {
-  button.addEventListener('click', () => {
-    const prompt = button.dataset.prompt;
-    chatInput.value = prompt;
-    chatForm.requestSubmit();
-  });
-});
-
-chatForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const message = chatInput.value.trim();
-  if (!message) return;
-
-  addMessage(message, 'user');
-  chatInput.value = '';
-  tutorStatus.textContent = 'Thinking...';
-
-  window.setTimeout(() => {
-    addMessage(getResponse(message));
-    tutorStatus.textContent = `${languageNames[currentLanguage]} practice ready`;
-  }, 450);
-});
-
-document.getElementById('voice-button').addEventListener('click', () => {
-  addMessage('Voice practice is the next step 🎤 We’ll connect real speech input and pronunciation feedback after the AI backend is added.');
-});
-
+function speak(text){if(!("speechSynthesis"in window)){addMessage("Your browser does not support spoken playback yet.");return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=currentLanguage==="yoruba"?"yo-NG":currentLanguage==="igbo"?"ig-NG":"ha-NG";u.rate=.78;window.speechSynthesis.speak(u)}
+function addMessage(text,type="tutor"){const w=document.createElement("div");w.className=`chat-message ${type==="user"?"user-message":"tutor-message"}`;w.innerHTML=type==="tutor"?`<div class="message-avatar"><i class="bi bi-stars"></i></div><div class="message-bubble"><span class="message-label">AI TUTOR</span><p></p></div>`:`<div class="message-bubble"><p></p></div>`;w.querySelector("p").textContent=text;chatArea.appendChild(w);chatArea.scrollTop=chatArea.scrollHeight}
+function getLocalResponse(message){const t=message.toLowerCase(),name=languageNames[currentLanguage],phrase=practicePhrases[currentLanguage][practiceIndex%practicePhrases[currentLanguage].length];if(t.includes("quiz"))return `Quick quiz 🧠 What does “${phrase.native}” mean in ${name}? Reply with your answer.`;if(t.includes("greeting")||t.includes("hello")||t.includes("teach"))return `Let’s learn one useful phrase: “${phrase.native}” means “${phrase.english}”. Tap the speaker to hear it, then try saying it yourself.`;if(t.includes("pronoun")||t.includes("pronounce"))return `Pronunciation mode 🎤: your next phrase is “${phrase.native}”. Tap the mic, say it, and I’ll compare what the browser heard with the target phrase.`;if(t.includes("practice")||t.includes("conversation")||t.includes("talk"))return `Conversation practice: I’m your ${name} partner. Start with “${phrase.native}” and I’ll keep the exchange simple.`;if(t.includes("meaning")||t.includes("translate")||t.includes("what does"))return `Send me a ${name} word or phrase and I’ll explain the meaning, usage and a simple example.`;practiceIndex++;return `Nice 👍 Let’s keep your ${name} practice practical. Ask for a lesson, translation, quiz, conversation or pronunciation.`}
+async function askTutor(message){try{const response=await fetch("/api/ai/tutor",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message,language:currentLanguage,history:[...chatArea.querySelectorAll(".message-bubble p")].slice(-8).map(x=>x.textContent)})});if(response.ok){const data=await response.json();if(data.reply)return data.reply}}catch{}return getLocalResponse(message)}
+function updateLanguage(language){currentLanguage=language;localStorage.setItem("learnnaija_language",language);document.querySelectorAll(".language-tab").forEach(tab=>{const active=tab.dataset.language===language;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",String(active))});const name=languageNames[language];tutorStatus.textContent=`${name} practice ready`;welcomeMessage.textContent=`${languageGreetings[language]} I’m ready to help you practice ${name}. What do you want to work on today?`;chatInput.placeholder=`Ask about ${name}...`}
+function getSpeechRecognition(){return window.SpeechRecognition||window.webkitSpeechRecognition}
+function startVoice(){const Recognition=getSpeechRecognition();if(!Recognition){addMessage("Voice input is not supported in this browser. Try Chrome or Edge on your phone/PC.");return}const recognition=new Recognition();recognition.lang=currentLanguage==="yoruba"?"yo-NG":currentLanguage==="igbo"?"ig-NG":"ha-NG";recognition.interimResults=false;recognition.maxAlternatives=1;voiceButton.classList.add("recording");tutorStatus.textContent="Listening…";recognition.onresult=e=>{const heard=e.results[0][0].transcript;chatInput.value=heard;addMessage(`I heard: “${heard}” 🎤`,"tutor");checkPronunciation(heard)};recognition.onerror=()=>addMessage("I couldn't hear that clearly. Try again in a quiet place.");recognition.onend=()=>{voiceButton.classList.remove("recording");tutorStatus.textContent=`${languageNames[currentLanguage]} practice ready`};recognition.start()}
+function levenshtein(a,b){a=a.toLowerCase().replace(/[^a-zà-ž' ]/g,"").trim();b=b.toLowerCase().replace(/[^a-zà-ž' ]/g,"").trim();const d=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){let prev=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const temp=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,prev+(a[i-1]===b[j-1]?0:1));prev=temp}}return d[b.length]}
+function checkPronunciation(heard){const target=practicePhrases[currentLanguage][practiceIndex%practicePhrases[currentLanguage].length].native;const distance=levenshtein(heard,target);const max=Math.max(target.length,1);const match=Math.max(0,Math.round((1-distance/max)*100));addMessage(`Speech match: ${match}%. Target: “${target}”. This is a browser transcript match, not a clinical pronunciation score. Try again and listen first.`);speak(target)}
+document.querySelectorAll(".language-tab").forEach(tab=>tab.addEventListener("click",()=>updateLanguage(tab.dataset.language)));
+document.querySelectorAll(".quick-action").forEach(button=>button.addEventListener("click",()=>{chatInput.value=button.dataset.prompt;chatForm.requestSubmit()}));
+chatForm.addEventListener("submit",async event=>{event.preventDefault();const message=chatInput.value.trim();if(!message)return;addMessage(message,"user");chatInput.value="";tutorStatus.textContent="Thinking…";const reply=await askTutor(message);addMessage(reply);tutorStatus.textContent=`${languageNames[currentLanguage]} practice ready`});
+voiceButton.addEventListener("click",startVoice);
+document.querySelector(".tutor-card")?.addEventListener("click",event=>{const button=event.target.closest("[data-speak]");if(button)speak(button.dataset.speak)});
 updateLanguage(currentLanguage);
